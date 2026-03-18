@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Marketing Toolkit</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🦾</span>
+                <h1>Growth Marketing Toolkit</h1>
+            </div>
+            <p class="tagline">Claude Code as your data analyst</p>
+        </header>
+
+        <main class="main">
+            <nav class="tabs">
+                <button class="tab active" data-tab="analytics">
+                    <span class="tab-icon">📊</span>
+                    Analytics
+                </button>
+                <button class="tab" data-tab="seo">
+                    <span class="tab-icon">🔍</span>
+                    SEO
+                </button>
+                <button class="tab" data-tab="indexing">
+                    <span class="tab-icon">🗺️</span>
+                    Indexing
+                </button>
+                <button class="tab" data-tab="pagespeed">
+                    <span class="tab-icon">⚡</span>
+                    Pagespeed
+                </button>
+            </nav>
+
+            <!-- Analytics Tab -->
+            <section class="tab-content active" id="analytics">
+                <div class="card">
+                    <h2>Track Event</h2>
+                    <div class="form-group">
+                        <label>Event Name</label>
+                        <input type="text" id="event-name" placeholder="e.g., button_clicked">
+                    </div>
+                    <div class="form-group">
+                        <label>Properties (JSON)</label>
+                        <textarea id="event-props" placeholder='{"page": "/home", "user": "anonymous"}'></textarea>
+                    </div>
+                    <button class="btn primary" onclick="trackEvent()">Track Event</button>
+                </div>
+
+                <div class="card">
+                    <h2>Check Events</h2>
+                    <div class="form-group">
+                        <label>Event Names (comma separated)</label>
+                        <input type="text" id="check-events" placeholder="e.g., page_view, signup, purchase">
+                    </div>
+                    <button class="btn secondary" onclick="checkEvents()">Check Events</button>
+                </div>
+
+                <div class="card">
+                    <h2>Get Report</h2>
+                    <div class="form-group">
+                        <label>Query</label>
+                        <input type="text" id="analytics-query" placeholder="e.g., show me recent events">
+                    </div>
+                    <button class="btn secondary" onclick="getReport()">Get Report</button>
+                </div>
+
+                <div class="results" id="analytics-results"></div>
+            </section>
+
+            <!-- SEO Tab -->
+            <section class="tab-content" id="seo">
+                <div class="card">
+                    <h2>Create Keyword Universe</h2>
+                    <div class="form-group">
+                        <label>Seed Keywords (comma separated)</label>
+                        <input type="text" id="seed-keywords" placeholder="e.g., ai marketing, growth hacking">
+                    </div>
+                    <button class="btn primary" onclick="createUniverse()">Create Universe</button>
+                </div>
+
+                <div class="card">
+                    <h2>Optimize Page</h2>
+                    <div class="form-group">
+                        <label>URL</label>
+                        <input type="text" id="optimize-url" placeholder="https://example.com/page">
+                    </div>
+                    <div class="form-group">
+                        <label>Target Keywords (comma separated)</label>
+                        <input type="text" id="target-keywords" placeholder="e.g., ai tools, marketing software">
+                    </div>
+                    <button class="btn primary" onclick="optimizePage()">Optimize</button>
+                </div>
+
+                <div class="card">
+                    <h2>Create New Page</h2>
+                    <div class="form-group">
+                        <label>Target Keyword</label>
+                        <input type="text" id="new-keyword" placeholder="e.g., best ai tools">
+                    </div>
+                    <div class="form-group">
+                        <label>Competitor URLs (comma separated)</label>
+                        <input type="text" id="competitors" placeholder="https://competitor.com/page">
+                    </div>
+                    <button class="btn primary" onclick="createPage()">Generate Content</button>
+                </div>
+
+                <div class="results" id="seo-results"></div>
+            </section>
+
+            <!-- Indexing Tab -->
+            <section class="tab-content" id="indexing">
+                <div class="card">
+                    <h2>Analyze Indexing</h2>
+                    <div class="form-group">
+                        <label>Sitemap URL or Path</label>
+                        <input type="text" id="sitemap-path" placeholder="https://example.com/sitemap.xml">
+                    </div>
+                    <div class="form-group">
+                        <label>GSC Export CSV Path (optional)</label>
+                        <input type="text" id="gsc-path" placeholder="path/to/gsc_export.csv">
+                    </div>
+                    <button class="btn primary" onclick="analyzeIndexing()">Analyze</button>
+                </div>
+
+                <div class="results" id="indexing-results"></div>
+            </section>
+
+            <!-- Pagespeed Tab -->
+            <section class="tab-content" id="pagespeed">
+                <div class="card">
+                    <h2>Run Lighthouse</h2>
+                    <div class="form-group">
+                        <label>URL</label>
+                        <input type="text" id="pagespeed-url" placeholder="https://example.com">
+                    </div>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" id="optimize-mode">
+                            Generate optimization plan (90+ scores)
+                        </label>
+                    </div>
+                    <button class="btn primary" onclick="runPagespeed()">Run Analysis</button>
+                </div>
+
+                <div class="results" id="pagespeed-results"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
